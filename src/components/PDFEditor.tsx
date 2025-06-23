@@ -72,7 +72,7 @@ export const PDFEditor: React.FC<PDFEditorProps> = () => {
     setIsProcessing(true);
     try {
       // Upload the edited text as a new file to Supabase Storage
-      const { data, error } = await supabase.storage
+      const { data: _data, error } = await supabase.storage
         .from('pdfs')
         .upload(`edited_${Date.now()}.txt`, new Blob([editedText], { type: 'text/plain' }));
 
